@@ -1,9 +1,11 @@
-//
-//  GameViewController.swift
-//  MAPD724-W2022-ICE1
-//
-//  Created by Tom Tsiliopoulos on 2022-01-12.
-//
+/**
+ * MAPD724 - MidTerm
+ * File Name:    GameViewController.swift
+ * Author:         Quoc Phong Ngo
+ * Student ID:   301148406
+ * Version:        1.0
+ * Date Modified:   March 2nd, 2022
+ */
 
 import UIKit
 import SpriteKit

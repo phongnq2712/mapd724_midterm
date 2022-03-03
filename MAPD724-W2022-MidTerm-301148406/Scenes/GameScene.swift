@@ -1,3 +1,12 @@
+/**
+ * MAPD724 - MidTerm
+ * File Name:    GameScene.swift
+ * Author:         Quoc Phong Ngo
+ * Student ID:   301148406
+ * Version:        1.0
+ * Date Modified:   March 2nd, 2022
+ */
+
 import UIKit
 import AVFoundation
 import SpriteKit
@@ -38,8 +47,9 @@ class GameScene: SKScene
         plane?.position = CGPoint(x: 0, y: -495)
         addChild(plane!)
         
-        // add 3 clouds to the scene
-        for index in 0...2
+        // Task 1
+        // add 2 clouds to the scene
+        for index in 0...1
         {
             let cloud: Cloud = Cloud()
             clouds.append(cloud)
