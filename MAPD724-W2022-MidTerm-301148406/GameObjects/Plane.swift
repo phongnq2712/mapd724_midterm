@@ -4,7 +4,7 @@
  * Author:         Quoc Phong Ngo
  * Student ID:   301148406
  * Version:        1.0
- * Date Modified:   March 2nd, 2022
+ * Date Modified:   March 3rd, 2022
  */
 
 import GameplayKit
@@ -15,7 +15,7 @@ class Plane : GameObject
     // initializer
     init()
     {
-        super.init(imageString: "plane", initialScale: 2.0)
+        super.init(imageString: "planeRight", initialScale: 1.2)
         Start()
     }
     
@@ -27,16 +27,18 @@ class Plane : GameObject
     
     override func CheckBounds()
     {
-        // constrain on the left boundary
-        if(position.x <= -310)
+        // Task 5
+        // constrain on the bottom boundary
+        if(position.y <= -130)
         {
-            position.x = -310
+            position.y = -130
         }
         
-        // constrain on the right boundary
-        if(position.x >= 310)
+        // Task 5
+        // constrain on the top boundary
+        if(position.y >= 130)
         {
-            position.x = 310
+            position.y = 130
         }
     }
     

@@ -4,7 +4,7 @@
  * Author:         Quoc Phong Ngo
  * Student ID:   301148406
  * Version:        1.0
- * Date Modified:   March 2nd, 2022
+ * Date Modified:   March 3rd, 2022
  */
 
 import GameplayKit
@@ -16,7 +16,7 @@ class Ocean : GameObject
     // constructor / initializer
     init()
     {
-        super.init(imageString: "ocean", initialScale: 2.0)
+        super.init(imageString: "oceanRight", initialScale: 2.0)
         Start()
     }
     
@@ -27,7 +27,8 @@ class Ocean : GameObject
     // LifeCycle Functions
     override func CheckBounds()
     {
-        if(position.y <= -773)
+//        if(position.y <= -773)
+        if(position.x <= -773)
         {
             Reset()
         }
@@ -35,7 +36,8 @@ class Ocean : GameObject
     
     override func Reset()
     {
-        position.y = 773
+//        position.y = 773
+        position.x = 773
     }
     
     // initialization
@@ -53,6 +55,7 @@ class Ocean : GameObject
     
     func Move()
     {
-        position.y -= verticalSpeed!
+//        position.y -= verticalSpeed!
+        position.x -= verticalSpeed!
     }
 }

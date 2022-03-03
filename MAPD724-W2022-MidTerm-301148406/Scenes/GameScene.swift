@@ -30,12 +30,15 @@ class GameScene: SKScene
     {
         screenWidth = frame.width
         screenHeight = frame.height
+        print("width:", screenWidth!)
+        print("height:" ,screenHeight!)
         
         name = "GAME"
         
         // add ocean to the scene
         ocean = Ocean() // allocate memory
-        ocean?.position = CGPoint(x: 0, y: 773)
+        // Task 2
+        ocean?.position = CGPoint(x: 773, y: 0)
         addChild(ocean!) // add the ocean to the scene
         
         // add island to the scene
@@ -44,7 +47,7 @@ class GameScene: SKScene
         
         // add plane to the scene
         plane = Plane()
-        plane?.position = CGPoint(x: 0, y: -495)
+        plane?.position = CGPoint(x: -320, y: 0)
         addChild(plane!)
         
         // Task 1
@@ -82,17 +85,20 @@ class GameScene: SKScene
     
     func touchDown(atPoint pos : CGPoint)
     {
-        plane?.TouchMove(newPos: CGPoint(x: pos.x, y: -495))
+        // Task 5
+        plane?.TouchMove(newPos: CGPoint(x: -310, y: pos.y))
     }
     
     func touchMoved(toPoint pos : CGPoint)
     {
-        plane?.TouchMove(newPos: CGPoint(x: pos.x, y: -495))
+        // Task 5
+        plane?.TouchMove(newPos: CGPoint(x: -310, y: pos.y))
     }
     
     func touchUp(atPoint pos : CGPoint)
     {
-        plane?.TouchMove(newPos: CGPoint(x: pos.x, y: -495))
+        // Task 5
+        plane?.TouchMove(newPos: CGPoint(x: -310, y: pos.y))
         
     }
     
@@ -131,7 +137,7 @@ class GameScene: SKScene
         
         if(ScoreManager.Lives < 1)
         {
-            gameManager?.PresentEndScene()
+//            gameManager?.PresentEndScene()
         }
     }
 }

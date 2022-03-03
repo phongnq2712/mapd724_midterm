@@ -16,7 +16,7 @@ class Cloud : GameObject
     // constructor / initializer
     init()
     {
-        super.init(imageString: "cloud", initialScale: 1.0)
+        super.init(imageString: "cloud", initialScale: 1)
         Start()
     }
     
@@ -27,7 +27,8 @@ class Cloud : GameObject
     // LifeCycle Functions
     override func CheckBounds()
     {
-        if(position.y <= -756)
+//        if(position.y <= -756)
+        if(position.x <= -756)
         {
             Reset()
         }
@@ -69,6 +70,8 @@ class Cloud : GameObject
     
     func Move()
     {
+//        position.x -= horizontalSpeed!
+//        position.y -= verticalSpeed!
         position.x -= horizontalSpeed!
         position.y -= verticalSpeed!
     }

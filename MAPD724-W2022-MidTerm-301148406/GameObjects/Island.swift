@@ -16,7 +16,7 @@ class Island : GameObject
     // constructor / initializer
     init()
     {
-        super.init(imageString: "island", initialScale: 2.0)
+        super.init(imageString: "island", initialScale: 1.2)
         Start()
     }
     
@@ -27,7 +27,8 @@ class Island : GameObject
     // LifeCycle Functions
     override func CheckBounds()
     {
-        if(position.y <= -730)
+//        if(position.y <= -730)
+        if(position.x <= -730)
         {
             Reset()
         }
@@ -35,10 +36,12 @@ class Island : GameObject
     
     override func Reset()
     {
-        position.y = 730
+//        position.y = 730
+        position.x = 730
         // get a pseudo random number -313 to 313
         let randomX:Int = (randomSource?.nextInt(upperBound: 616))! - 313
-        position.x = CGFloat(randomX)
+//        position.x = CGFloat(randomX)
+        position.y = CGFloat(randomX)
         isCollding = false
     }
     
@@ -58,6 +61,6 @@ class Island : GameObject
     
     func Move()
     {
-        position.y -= verticalSpeed!
+        position.x -= verticalSpeed!
     }
 }
