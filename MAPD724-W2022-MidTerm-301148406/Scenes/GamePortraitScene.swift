@@ -1,10 +1,10 @@
 /**
  * MAPD724 - MidTerm
- * File Name:    GameScene.swift
+ * File Name:    GamePortraitScene.swift
  * Author:         Quoc Phong Ngo
  * Student ID:   301148406
  * Version:        1.0
- * Date Modified:   March 2nd, 2022
+ * Date Modified:   March 4th, 2022
  */
 
 import UIKit
@@ -12,48 +12,45 @@ import AVFoundation
 import SpriteKit
 import GameplayKit
 
-let screenSize = UIScreen.main.bounds
-var screenWidth: CGFloat?
-var screenHeight: CGFloat?
+//let screenSize = UIScreen.main.bounds
+//var screenWidth: CGFloat?
+//var screenHeight: CGFloat?
 
-class GameScene: SKScene
+class GamePortraitScene: SKScene
 {
     var gameManager: GameManager?
     
     // instance variables
-    var ocean: Ocean?
-    var island: Island?
-    var plane: Plane?
-    var clouds: [Cloud] = []
-    
+    var ocean: OceanPortrait?
+    var island: IslandPortrait?
+    var plane: PlanePortrait?
+    var clouds: [CloudPortrait] = []
+      
     override func didMove(to view: SKView)
     {
-        print("didMove")
         screenWidth = frame.width
         screenHeight = frame.height
         
         name = "GAME"
         
         // add ocean to the scene
-        ocean = Ocean() // allocate memory
-        // Task 2
-        ocean?.position = CGPoint(x: 773, y: 0)
+        ocean = OceanPortrait() // allocate memory
+        ocean?.position = CGPoint(x: 0, y: 773)
         addChild(ocean!) // add the ocean to the scene
         
         // add island to the scene
-        island = Island()
+        island = IslandPortrait()
         addChild(island!)
         
         // add plane to the scene
-        plane = Plane()
-        plane?.position = CGPoint(x: -320, y: 0)
+        plane = PlanePortrait()
+        plane?.position = CGPoint(x: 0, y: -495)
         addChild(plane!)
         
-        // Task 1
-        // add 2 clouds to the scene
+        // add 3 clouds to the scene
         for index in 0...1
         {
-            let cloud: Cloud = Cloud()
+            let cloud: CloudPortrait = CloudPortrait()
             clouds.append(cloud)
             addChild(clouds[index])
         }
@@ -84,20 +81,17 @@ class GameScene: SKScene
     
     func touchDown(atPoint pos : CGPoint)
     {
-        // Task 5
-        plane?.TouchMove(newPos: CGPoint(x: -310, y: pos.y))
+        plane?.TouchMove(newPos: CGPoint(x: pos.x, y: -495))
     }
     
     func touchMoved(toPoint pos : CGPoint)
     {
-        // Task 5
-        plane?.TouchMove(newPos: CGPoint(x: -310, y: pos.y))
+        plane?.TouchMove(newPos: CGPoint(x: pos.x, y: -495))
     }
     
     func touchUp(atPoint pos : CGPoint)
     {
-        // Task 5
-        plane?.TouchMove(newPos: CGPoint(x: -310, y: pos.y))
+        plane?.TouchMove(newPos: CGPoint(x: pos.x, y: -495))
         
     }
     
@@ -121,11 +115,6 @@ class GameScene: SKScene
     
     override func update(_ currentTime: TimeInterval)
     {
-        if(UIDevice.current.orientation.isLandscape) {
-            //print("landscape")
-        } else if(UIDevice.current.orientation.isPortrait) {
-            //print("portrait")
-        }
         ocean?.Update()
         island?.Update()
         plane?.Update()
@@ -144,5 +133,4 @@ class GameScene: SKScene
             gameManager?.PresentEndScene()
         }
     }
-    
 }

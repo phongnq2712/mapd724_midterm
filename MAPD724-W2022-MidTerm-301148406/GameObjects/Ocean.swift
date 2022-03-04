@@ -16,6 +16,7 @@ class Ocean : GameObject
     // constructor / initializer
     init()
     {
+        print("initOcean")
         super.init(imageString: "oceanRight", initialScale: 2.0)
         Start()
     }
@@ -49,6 +50,7 @@ class Ocean : GameObject
     
     override func Update()
     {
+        
         Move()
         CheckBounds()
     }

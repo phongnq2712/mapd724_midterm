@@ -1,30 +1,31 @@
 /**
  * MAPD724 - MidTerm
- * File Name:    EndScene.swift
+ * File Name:    StartPortraitScene.swift
  * Author:         Quoc Phong Ngo
  * Student ID:   301148406
  * Version:        1.0
- * Date Modified:   March 2nd, 2022
+ * Date Modified:   March 4th, 2022
  */
 
 import SpriteKit
 import GameplayKit
 
-class EndScene: SKScene
+class StartPortraitScene: SKScene
 {
     // Istance Variables
-    var ocean: Ocean?
+    var ocean: OceanPortrait?
+    
     
     override func didMove(to view: SKView)
     {
         screenWidth = frame.width
         screenHeight = frame.height
         
-        name = "END"
+        name = "STARTPORTRAIT"
         
         // add ocean to the scene
-        ocean = Ocean() // allocate memory
-        ocean?.position = CGPoint(x: 773, y: 0)
+        ocean = OceanPortrait() // allocate memory
+        ocean?.position = CGPoint(x: 0, y: 773)
         addChild(ocean!) // add the ocean to the scene
     }
     

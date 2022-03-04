@@ -1,22 +1,22 @@
 /**
  * MAPD724 - MidTerm
- * File Name:    Cloud.swift
+ * File Name:    CloudPortrait.swift
  * Author:         Quoc Phong Ngo
  * Student ID:   301148406
  * Version:        1.0
- * Date Modified:   March 3rd, 2022
+ * Date Modified:   March 4th, 2022
  */
 
 import GameplayKit
 import SpriteKit
 
-class Cloud : GameObject
+class CloudPortrait : GameObject
 {
     
     // constructor / initializer
     init()
     {
-        super.init(imageString: "cloud", initialScale: 0.5)
+        super.init(imageString: "cloud", initialScale: 1.0)
         Start()
     }
     
@@ -27,7 +27,7 @@ class Cloud : GameObject
     // LifeCycle Functions
     override func CheckBounds()
     {
-        if(position.x <= -756)
+        if(position.y <= -756)
         {
             Reset()
         }
@@ -36,19 +36,19 @@ class Cloud : GameObject
     override func Reset()
     {
         // randomize vertical speed
-        horizontalSpeed = CGFloat((randomSource?.nextUniform())! * 5.0) + 5.0
+        verticalSpeed = CGFloat((randomSource?.nextUniform())! * 5.0) + 5.0
         
         // randomize horizontal drift
-        verticalSpeed = CGFloat((randomSource?.nextUniform())! * -4.0) + 2.0
+        horizontalSpeed = CGFloat((randomSource?.nextUniform())! * -4.0) + 2.0
         
         
         // get a pseudo random number -262 to 262
-        let randomY:Int = (randomSource?.nextInt(upperBound: 524))! - 262
-        position.y = CGFloat(randomY)
+        let randomX:Int = (randomSource?.nextInt(upperBound: 524))! - 262
+        position.x = CGFloat(randomX)
         
         // get a pseudo random number 756 to 776
-        let randomX:Int = (randomSource?.nextInt(upperBound: 20))! + 756
-        position.x = CGFloat(randomX)
+        let randomY:Int = (randomSource?.nextInt(upperBound: 20))! + 756
+        position.y = CGFloat(randomY)
         
         isCollding = false
     }
@@ -69,7 +69,7 @@ class Cloud : GameObject
     
     func Move()
     {
-        position.y -= verticalSpeed!
         position.x -= horizontalSpeed!
+        position.y -= verticalSpeed!
     }
 }

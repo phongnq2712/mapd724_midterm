@@ -1,22 +1,22 @@
 /**
  * MAPD724 - MidTerm
- * File Name:    Island.swift
+ * File Name:    IslandPortrait.swift
  * Author:         Quoc Phong Ngo
  * Student ID:   301148406
  * Version:        1.0
- * Date Modified:   March 3rd, 2022
+ * Date Modified:   March 4th, 2022
  */
 
 import GameplayKit
 import SpriteKit
 
-class Island : GameObject
+class IslandPortrait : GameObject
 {
     
     // constructor / initializer
     init()
     {
-        super.init(imageString: "island", initialScale: 1.2)
+        super.init(imageString: "island", initialScale: 2.0)
         Start()
     }
     
@@ -27,8 +27,7 @@ class Island : GameObject
     // LifeCycle Functions
     override func CheckBounds()
     {
-        // Task 3
-        if(position.x <= -730)
+        if(position.y <= -730)
         {
             Reset()
         }
@@ -36,10 +35,10 @@ class Island : GameObject
     
     override func Reset()
     {
-        position.x = 730
-        // get a pseudo random number -150 to 150
-        let randomY:Int = (randomSource?.nextInt(upperBound: 300))! - 150
-        position.y = CGFloat(randomY)
+        position.y = 730
+        // get a pseudo random number -313 to 313
+        let randomX:Int = (randomSource?.nextInt(upperBound: 616))! - 313
+        position.x = CGFloat(randomX)
         isCollding = false
     }
     
@@ -59,6 +58,6 @@ class Island : GameObject
     
     func Move()
     {
-        position.x -= verticalSpeed!
+        position.y -= verticalSpeed!
     }
 }
